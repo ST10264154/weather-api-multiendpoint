@@ -14,6 +14,28 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('🌍 Weather API is running!');
 });
+  
+app.get('/add', (req, res) => {
+    const { a, b } = req.query;
+    const sum = Number(a) + Number(b);
+    res.json({ result: sum });
+});
+  
+app.post('/reverse', (req, res) => {
+    const { text } = req.body;
+    if (!text) return res.status(400).json({ error: 'Missing text field' });
+    const reversed = text.split('').reverse().join('');
+    res.json({ reversed });
+});
+  
+app.get('/time', (req, res) => {
+    res.json({ time: new Date().toISOString() });
+});
+  
+  app.get('/random', (req, res) => {
+    const random = Math.floor(Math.random() * 1000);
+    res.json({ random });
+});
 
 app.get('/weather/:city', async (req, res) => {
   const city = req.params.city;

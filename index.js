@@ -13,13 +13,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('🌍 Weather API is running!');
-  {
-  "city": "Durban",
-  "temperature": "26 °C",
-  "condition": "Mostly Cloudy",
-  "humidity": "60%",
-  "wind_speed": "10 km/h"
-}
+
 });
   
 app.get('/add', (req, res) => {
